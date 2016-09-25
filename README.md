@@ -124,6 +124,48 @@ Is there a single Enumerable method that will accomplish this?
 
 This can be done using flat map
 
+**Any**
+
+Passes each element of the collection to the given block. The method returns true if the block ever returns a value other than false or nil. If the block is not given, Ruby adds an implicit block of { |obj| obj } that will cause any? to return true if at least one of the collection members is not false or nil.
+
+    %w[ant bear cat].all? { |word| word.length >= 3 } #=> true
+    %w[ant bear cat].all? { |word| word.length >= 4 } #=> false
+    [nil, true, 99].all?                              #=> false
+
+** All **
+
+Passes each element of the collection to the given block. The method returns true if the all the values return true otherwise false
+
+    def all_are_admins?(users)
+      users.all?(&:admin?)
+    end
+
+the above code sample is a simplification of this method
+
+    def all_are_admins?(users)
+      all_admins = true
+    
+      users.each do |user|
+        all_admins = all_admins && user.admin?
+      end
+    
+      all_admins
+    end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
