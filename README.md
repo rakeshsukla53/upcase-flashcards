@@ -65,8 +65,7 @@ to treat the accumulator variable that way. You can use the default value parame
     a = [1,2,3,4]
     a.inject([]) {|acc,n| acc << n+n}
 
-In this example I add n to itself and then append it to the accumulator variable. 
-I initialized the accumulator as an empty array using the default value parameter.
+In this example I add n to itself and then append it to the accumulator variable. I initialized the accumulator as an empty array using the default value parameter.
 
 **Detect**
 
@@ -78,11 +77,21 @@ Use detect if you need to find an item in an array and it stops there once you f
 This returns 3. The value we were looking for. If the value had not been 
 found, then the iterator returns nil.
 
+**Group By**
+
+Groups the collection by result of the block. Returns a hash where the keys are the evaluated result from the block and the values are arrays of elements in the collection that correspond to the key.
+
+    names = %w(ben thom joe mark)   
+    puts names.group_by { |names| names.length}
+    output = {3=>["ben", "joe"], 4=>["thom", "mark"]}
 
 
+**Partition**
 
+"Returns two arrays, the first containing the elements of enum for which the block evaluates to true, the second containing the rest."
 
-
+    (1..6).partition { |i| i.even? }
+    #=> [[2, 4, 6], [1, 3, 5]]
 
 
 

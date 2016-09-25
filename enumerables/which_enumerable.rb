@@ -1,5 +1,3 @@
-require 'byebug'
-
 def string_lengths(strings)
   lengths = {}
 
@@ -11,8 +9,7 @@ def string_lengths(strings)
 end
 
 # string_lengths(%w(ben chris mark)) =>
-#   { "ben" => 3, "chris" => 5, "mark" => 4 }
-
+# { "ben" => 3, "chris" => 5, "mark" => 4 }
 
 # what kind of enumerable is this?
 # since we are changing the type of the data its a INJECT
