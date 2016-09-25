@@ -132,7 +132,7 @@ Passes each element of the collection to the given block. The method returns tru
     %w[ant bear cat].all? { |word| word.length >= 4 } #=> false
     [nil, true, 99].all?                              #=> false
 
-** All **
+**All**
 
 Passes each element of the collection to the given block. The method returns true if the all the values return true otherwise false
 
