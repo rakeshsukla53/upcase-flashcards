@@ -93,9 +93,36 @@ Groups the collection by result of the block. Returns a hash where the keys are 
     (1..6).partition { |i| i.even? }
     #=> [[2, 4, 6], [1, 3, 5]]
 
+**Collect vs Map**
 
+    67] pry(main)> users = [1, 2, 3, 4, 5]
+    => [1, 2, 3, 4, 5]
+    [68] pry(main)> users.map { |user| [user, 'a'] }
+    => [[1, "a"], [2, "a"], [3, "a"], [4, "a"], [5, "a"]]
+    [69] pry(main)> users.collect { |user| [user, 'a'] }
+    => [[1, "a"], [2, "a"], [3, "a"], [4, "a"], [5, "a"]]
+    [70] pry(main)> users.map { |n| n*n }
+    => [1, 4, 9, 16, 25]
+    [71] pry(main)> users.colect { |n| n*n }
+    NoMethodError: undefined method `colect' for [1, 2, 3, 4, 5]:Array
+    from (pry):71:in `__pry__'
+    [72] pry(main)> users.collect { |n| n*n }
+    => [1, 4, 9, 16, 25]
+    [73] pry(main)>
 
+There is no difference
 
+** flat_map **
+
+Is there a single Enumerable method that will accomplish this?
+
+    users.map { |user| [user.name, user.age] }.flatten
+    #=> ["ben", 32, "chad", 50]
+
+    users.flat_map { |user| [user.name, user.age] }
+    #=> ["ben", 32, "chad", 50]
+
+This can be done using flat map
 
 
 
